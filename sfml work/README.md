@@ -5,11 +5,11 @@ A dynamic C++/SFML application for visualizing the real-time execution of classi
 ---
 
 ### Sorting Mode Visualization
-![Sorting Mode Screenshot](https://placehold.co/600x400/2d3748/ffffff?text=Sorting+Mode+GIF+Here&font=sans)
+![Sorting Mode Screenshot](./assest/Sorting.gif)
 *A snapshot of Merge Sort in action.*
 
 ### Pathfinding Mode Visualization
-![Pathfinding Mode Screenshot](https://placehold.co/600x400/2d3748/ffffff?text=Pathfinding+GIF+Here&font=sans)
+![Pathfinding Mode Screenshot](./assest/Pathfinding.git)
 *A* Search finding the optimal path in a user-generated maze.*
 
 ---
