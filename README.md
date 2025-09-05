@@ -9,7 +9,7 @@ A dynamic C++/SFML application for visualizing the real-time execution of classi
 *A snapshot of Merge Sort in action.*
 
 ### Pathfinding Mode Visualization
-![Pathfinding Mode Screenshot](.assest/Pathfinding.gif)
+![Pathfinding Mode Screenshot](./assest/Pathfinding.gif)
 *A* Search finding the optimal path in a user-generated maze.*
 
 ---
