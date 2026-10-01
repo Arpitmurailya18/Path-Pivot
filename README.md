@@ -8,7 +8,7 @@ The project was originally developed as a **C++/SFML desktop application** and h
 
 ---
 
-## Preview
+## Preview - Windows Desktop version
 
 ### Sorting Mode Visualization
 
