@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Path & Pivot — interactive algorithm visualizer for sorting and pathfinding algorithms.">
+  <title>Path & Pivot — Algorithm Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Path & Pivot home"><img class="brand-logo" src="path-pivot-logo.png" alt="Path & Pivot logo"><span class="brand-name">Path &amp; Pivot</span></a>
+    <nav>
+      <button class="nav-btn active" data-mode="sorting">Sorting</button>
+      <button class="nav-btn" data-mode="pathfinding">Pathfinding</button>
+    </nav>
+    <button id="help-btn" class="help-btn" type="button">How to use</button>
+    <a class="github" href="https://github.com/Arpitmurailya18/Path-Pivot" target="_blank" rel="noopener">GitHub ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">INTERACTIVE ALGORITHM VISUALIZER</p>
+        <h1 id="hero-title">See sorting algorithms in motion.</h1>
+        <p id="hero-copy">Generate an array, choose an algorithm, and watch each comparison and swap happen step by step.</p>
+      </div>
+      <div class="hero-badge"><span class="dot"></span> Runs directly in your browser</div>
+    </section>
+
+    <section class="workspace">
+      <aside class="panel controls">
+        <div class="panel-title">Controls</div>
+        <label>Algorithm</label>
+        <select id="algorithm"></select>
+
+        <div id="sort-controls">
+          <label>Array size <span id="size-value">50</span></label>
+          <input id="size" type="range" min="10" max="90" value="50">
+          <label>Speed <span id="speed-value">Medium</span></label>
+          <input id="speed" type="range" min="1" max="5" value="3">
+        </div>
+
+        <div id="path-controls" class="hidden">
+          <button id="maze" class="primary">Generate New Maze</button>
+
+          <label>Speed <span id="path-speed-value">Medium</span></label>
+          <input id="path-speed" type="range" min="1" max="5" value="3">
+
+          <label class="check-row">
+            <input id="diagonal" type="checkbox">
+            <span>Allow diagonal traversal</span>
+          </label>
+
+          <div class="tool-grid">
+            <button id="tool-start" class="tool-btn active">Set Start</button>
+            <button id="tool-end" class="tool-btn">Set End</button>
+            <button id="tool-wall" class="tool-btn">Draw Wall</button>
+            <button id="tool-weight" class="tool-btn">Add Weight</button>
+          </div>
+          <p class="hint">Choose a tool, then click or drag on the grid. Selecting Set Start/Set End clears the current visualization.</p>
+        </div>
+
+        <div id="sort-actions" class="button-grid">
+          <button id="generate" class="primary">Generate New Array</button>
+          <button id="start" class="primary">Start</button>
+          <button id="pause" class="secondary" aria-label="Pause visualization">⏸ Pause</button>
+          <button id="reset" class="secondary">Reset</button>
+        </div>
+        <div id="path-actions" class="button-grid hidden">
+          <button id="path-start" class="primary">Start</button>
+          <button id="path-pause" class="secondary">⏸ Pause</button>
+          <button id="path-clear" class="secondary">Clear Visualization</button>
+          <button id="path-reset" class="secondary">Reset</button>
+        </div>
+        <button id="clear" class="danger">Clear Visualization</button>
+
+        <div class="stats">
+          <div><span id="stat-a-label">Comparisons</span><strong id="stat-a">0</strong></div>
+          <div><span id="stat-b-label">Array accesses</span><strong id="stat-b">0</strong></div>
+          <div><span id="stat-c-label">Status</span><strong id="stat-c">Ready</strong></div>
+        </div>
+      </aside>
+
+      <section class="panel visual-panel">
+        <div class="visual-header">
+          <div><span class="mode-pill" id="mode-pill">SORTING</span><span id="algorithm-title">Bubble Sort</span></div>
+          <span id="progress">Ready</span>
+        </div>
+        <canvas id="canvas" width="1000" height="570"></canvas>
+      </section>
+
+      <aside class="panel pseudo-panel">
+        <div class="panel-title">Pseudocode</div>
+        <div id="pseudocode" class="pseudocode" aria-live="polite"></div>
+        <div class="legend" id="legend">
+          <div><i class="swatch compare"></i> Comparing</div>
+          <div><i class="swatch swap"></i> Swapping</div>
+          <div><i class="swatch sorted"></i> Sorted</div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+
+  <div id="welcome-modal" class="welcome-modal hidden" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+    <div class="welcome-backdrop" data-close-welcome></div>
+    <div class="welcome-card">
+      <button id="welcome-close" class="welcome-close" type="button" aria-label="Close instructions">×</button>
+      <div class="welcome-kicker">PATH &amp; PIVOT</div>
+      <h2 id="welcome-title">Welcome to the Algorithm Visualizer</h2>
+      <p class="welcome-intro">This quick guide shows you how to use both modes. You can reopen it anytime with <strong>How to use</strong>.</p>
+
+      <div class="welcome-grid">
+        <section class="welcome-section">
+          <div class="welcome-icon">01</div>
+          <h3>Sorting Mode</h3>
+          <ul>
+            <li>Choose <strong>Bubble, Selection, Insertion, Merge,</strong> or <strong>Quick Sort</strong>.</li>
+            <li>Use <strong>Array size</strong> and <strong>Speed</strong> to control the visualization.</li>
+            <li>Click <strong>Generate New Array</strong> for a fresh array.</li>
+            <li>Click <strong>Start</strong> to run. Use <strong>Pause</strong> and <strong>Reset</strong> whenever needed.</li>
+            <li>The highlighted pseudocode line shows what the algorithm is doing.</li>
+          </ul>
+        </section>
+
+        <section class="welcome-section">
+          <div class="welcome-icon">02</div>
+          <h3>Pathfinding Mode</h3>
+          <ul>
+            <li>Choose <strong>BFS, DFS, Dijkstra,</strong> or <strong>A*</strong>.</li>
+            <li>Use <strong>Generate New Maze</strong> or build your own grid.</li>
+            <li><strong>Set Start</strong> / <strong>Set End</strong>: click a cell to move the endpoints.</li>
+            <li><strong>Draw Wall</strong> / <strong>Add Weight</strong>: click or drag on the grid.</li>
+            <li>Turn on <strong>Allow diagonal traversal</strong> if diagonal movement is wanted.</li>
+            <li>Click <strong>Start</strong> to search. Use <strong>Pause</strong>, <strong>Clear Visualization</strong>, or <strong>Reset</strong> as needed.</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="welcome-note"><strong>Tip:</strong> The colors in the legend explain what you see while an algorithm is running.</div>
+      <div class="welcome-actions">
+        <label class="welcome-check"><input id="welcome-dont-show" type="checkbox"> Don't show this automatically again</label>
+        <button id="welcome-start" class="primary" type="button">Start Exploring</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>Path &amp; Pivot · C++/SFML project by Arpit Jatav · Web edition</footer>
+  <script src="script.js"></script>
+</body>
+</html>
