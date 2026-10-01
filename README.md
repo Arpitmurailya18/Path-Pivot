@@ -1,43 +1,164 @@
 # Path & Pivot - An Interactive Algorithm Visualizer
 
-A dynamic C++/SFML application for visualizing the real-time execution of classic sorting and pathfinding algorithms.
+Path & Pivot is an interactive algorithm visualizer designed to demonstrate the real-time execution and behavior of classic sorting and pathfinding algorithms.
+
+The project was originally developed as a **C++/SFML desktop application** and has been extended with a **browser-based version** that allows users to interact with the visualizer directly without installing the desktop application.
+
+> **Live Demo:** [Path & Pivot](https://arpitmurailya18.github.io/Path-Pivot/)
 
 ---
 
+## Preview
+
 ### Sorting Mode Visualization
+
 ![Sorting Mode Screenshot](./assest/Sorting.gif)
+
 *A snapshot of Merge Sort in action.*
 
 ### Pathfinding Mode Visualization
+
 ![Pathfinding Mode Screenshot](./assest/Pathfinding.gif)
-*A* Search finding the optimal path in a user-generated maze.*
+
+*A* Search finding a path through a user-generated maze.
 
 ---
 
-## Features
+# Features
 
-* **Dual-Mode Visualizer:** A versatile engine built to visualize both 1D array-based sorting algorithms and 2D grid-based pathfinding algorithms.
-* **Interactive Simulation Environment:** Full user control over the visualization with real-time speed adjustments, play/pause functionality, and reset capabilities.
-* **Dynamic Maze & Array Generation:** Interactively design complex mazes by placing walls and weights, or generate random mazes and arrays with a single click.
-* **Comprehensive Algorithm Suite:** Implements a wide range of classic algorithms:
-    * **Sorting:** Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort.
-    * **Pathfinding:** Breadth-First Search (BFS), Depth-First Search (DFS), Dijkstra's Algorithm, and A* Search.
-* **Detailed Performance Statistics:** After each run, the application displays key performance metrics like comparisons, array accesses, path cost, and nodes visited, providing a clear analysis of each algorithm's efficiency.
+## Sorting Mode
 
-## Tools & Technologies
+The sorting visualizer provides step-by-step visualization of the following algorithms:
 
-* **Core:** C++
-* **Graphics & Windowing:** SFML
-* **Compiler:** g++ (MinGW)
-* **Version Control:** Git / GitHub
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
 
-## How to Run
+### Sorting Features
 
-1.  Navigate to the [Releases page](https://github.com/Arpitmurailya18/Path-Pivot/releases/tag/v1.0.0).
-2.  Download the `.zip` file from the latest release.
-3.  Extract the contents of the `.zip` file to a folder on your computer.
-4.  Run the `main.exe` executable.
+- Generate new arrays
+- Adjustable visualization speed
+- Start / Pause / Resume
+- Reset
+- Real-time comparisons
+- Swap visualization
+- Sorted-element visualization
+- Comparison statistics
+- Array access statistics
+- Algorithm pseudocode
+- Current pseudocode line highlighting
 
 ---
 
-This project was built as a comprehensive tool for learning and understanding the performance and behavior of fundamental data structures and algorithms.
+## Pathfinding Mode
+
+The pathfinding visualizer provides interactive visualization of:
+
+- Breadth-First Search (BFS)
+- Depth-First Search (DFS)
+- Dijkstra's Algorithm
+- A* Search
+
+### Pathfinding Features
+
+- Generate random mazes
+- Create custom walls
+- Add weighted nodes
+- Set custom start point
+- Set custom end point
+- Optional diagonal traversal
+- Adjustable visualization speed
+- Start / Pause / Resume
+- Clear Visualization
+- Reset
+- Visited-node visualization
+- Open-set visualization
+- Final path visualization
+- Visited-node statistics
+- Path-cost statistics
+- Algorithm pseudocode
+- Current pseudocode line highlighting
+
+---
+
+# Interactive Visualization
+
+The visualizer uses different colors to make algorithm execution easier to understand.
+
+### Pathfinding Color Legend
+
+| Color | Meaning |
+|---|---|
+| Green | Start / Final Path |
+| Red | End |
+| Gray | Wall |
+| Purple | Visited Node |
+| Orange | Open Set |
+| Yellow | Weighted Node |
+
+---
+
+# Tools & Technologies
+
+## Desktop Application
+
+- **Language:** C++
+- **Graphics Library:** SFML
+- **Compiler:** g++ / MinGW
+- **Build Environment:** Windows
+
+## Web Application
+
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **Deployment:** GitHub Pages
+
+## Development Tools
+
+- Git
+- GitHub
+- Visual Studio Code
+
+---
+
+# Project Structure
+
+```text
+Path-Pivot/
+│
+├── Algo Visualizer/
+│   └── sfml work/
+│       ├── include/
+│       ├── src/
+│       ├── assets/
+│       └── ...
+│
+├── web/
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   └── path-pivot-logo.png
+│
+└── README.md
+
+Installation & Setup
+Path & Pivot can be used in two ways:
+1. Desktop Application (C++/SFML)
+2. Web Application
+1. Desktop Application
+The desktop version is the original C++/SFML implementation.
+Option A - Download the Pre-Built Application
+This is the easiest way to run Path & Pivot on Windows.
+Requirements
+- Windows
+- No compiler required
+- No SFML installation required when using the pre-built release
+Installation
+1. Go to the Releases page.
+2. Download the latest .zip release.
+3. Extract the downloaded ZIP file.
+4. Open the extracted folder.
+5. Run: main.exe
