@@ -143,22 +143,91 @@ Path-Pivot/
 │   └── path-pivot-logo.png
 │
 └── README.md
-
-Installation & Setup
+```
+# Installation & Setup
 Path & Pivot can be used in two ways:
 1. Desktop Application (C++/SFML)
 2. Web Application
-1. Desktop Application
+
+## Desktop Application
 The desktop version is the original C++/SFML implementation.
 Option A - Download the Pre-Built Application
 This is the easiest way to run Path & Pivot on Windows.
+
 Requirements
 - Windows
 - No compiler required
 - No SFML installation required when using the pre-built release
+
 Installation
 1. Go to the Releases page.
 2. Download the latest .zip release.
 3. Extract the downloaded ZIP file.
 4. Open the extracted folder.
 5. Run: main.exe
+
+The application will start directly.
+Note: The pre-built desktop application is intended for Windows.
+
+## Web Application
+The web version allows you to use Path & Pivot directly in a browser.
+No C++, SFML, or MinGW installation is required.
+Live Demo
+You can use the web version directly: https://arpitmurailya18.github.io/Path-Pivot/
+
+# How to Use
+When a user visits the web application for the first time, an instruction panel explains how the visualizer works.
+
+## Sorting Mode
+1. Select a sorting algorithm.
+2. Generate a new array.
+3. Adjust the visualization speed.
+4. Click Start.
+5. Use Pause / Resume to control execution.
+6. Use Reset to start over.
+
+## Pathfinding Mode
+1. Select a pathfinding algorithm.
+2. Generate a new maze or create your own grid.
+3. Set the start node.
+4. Set the end node.
+5. Add walls or weighted nodes if required.
+6. Enable diagonal traversal if required.
+7. Adjust the visualization speed.
+8. Click Start.
+9. Use Pause / Resume when required.
+10. Use Clear Visualization to remove the search result while keeping the grid.
+11. Use Reset to recreate the pathfinding grid.
+
+# Pseudocode Visualization
+Path & Pivot displays the pseudocode corresponding to the selected algorithm.
+During execution, the currently active pseudocode line is highlighted so users can connect the visual animation with the underlying algorithmic steps.
+
+# Why Path & Pivot?
+Path & Pivot was created to make fundamental algorithms easier to understand through interactive visualization.
+
+Instead of only reading algorithm implementations, users can observe:
+- How elements move during sorting
+- How comparisons and swaps occur
+- Which nodes are explored during pathfinding
+- How BFS, DFS, Dijkstra, and A* search through a grid
+- How weighted nodes affect pathfinding
+- How different traversal options affect the search
+- How algorithm execution corresponds to its pseudocode
+- How algorithm behavior changes with different inputs
+
+# Future Improvements
+Possible future improvements include:
+- Additional sorting algorithms
+- Additional graph algorithms
+- More maze-generation techniques
+- Algorithm complexity comparison
+- Additional visualization customization
+- Improved mobile interaction
+
+# Author
+**Arpit Jatav**
+Computer Science / Software Engineering Student
+
+# License
+This project is intended for educational and learning purposes.
